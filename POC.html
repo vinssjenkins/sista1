@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+ <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#" onClick = myFunction()>LoanApp</a></li>
+      <li><a href="#" onClick = myFunction()>AuthorizationService</a></li>
+    </ul>
+  </div>
+
+<div id="myDIV">
+    <table id="thetable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+            <th>Header 4</th>
+            <th>Header 5</th>
+        </tr>
+        
+            <!-- var data = {};
+        data.d = [{Components: 'Beaner', BuildStatus: '20', Server: 'hbcjhsdb', Commit: '232ga43', ArtifactoryPath: '/dir/dummy/path'}, 
+                  {Components: 'Beaner', BuildStatus: '20', Server: 'hbcjhsdb', Commit: '232ga43', ArtifactoryPath: '/dir/dummy/path'},
+                 {Components: 'Beaner', BuildStatus: '20', Server: 'hbcjhsdb', Commit: '232ga43', ArtifactoryPath: '/dir/dummy/path'}];
+        
+        $('#thetable tr').not(':first').not(':last').remove(); -->
+        <!-- var html = '';
+        for(var i = 0; i < data.d.length; i++) html += -->
+                    <tr><td>data.d[i].Components</td><td>data.d[i].BuildStatus</td><td>data.d[i].Server</td><td>data.d[i].Commit</td><td>data.d[i].ArtifactoryPath</td></tr>
+    </table>
+</div>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+        x.style.display = "block"
+    } else {
+        x.style.display = "none"
+    }
+}
+</script>
+
+</body> 
+</html>
