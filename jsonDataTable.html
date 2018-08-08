@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th{
+    background-color: cadetblue;
+}
+td{
+    background-color: bisque
+}
+
+</style>
+</head>
+<body>
+<div>
+    <table style = "width:30%">
+            <tr>
+                <th>BuildDate</th>
+                    <th>
+                        <div class="dropdown">
+                        <button class="btn btn-block dropdown-toggle" type="button" data-toggle="dropdown">Application
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu block">
+                        <li><a href="#" onClick = loanAppFunction()>LoanApp</a></li>
+                        <li><a href="#" onClick = authFunction()>AuthorizationService</a></li>
+                        </ul>
+                        </div>
+                    </th>
+                <th>
+                    Environment
+                </th>
+            </tr>
+    </table>
+</div>
+
+
+<div id="myDIV">
+    <table id="thetable" style = "width: 92.1%", align="right">
+        <tr>
+            <th>Components</th>
+            <th>Build Status</th>
+            <th>Server Commit#</th>
+            <th>ArtifactoryPath</th>
+            <th>Job Log</th>
+        </tr>
+        
+    </table>
+</div>
+
+<script>
+function loanAppFunction() {
+    var data = {};
+    data.d = 
+            [
+                {
+                    Components: 'LoanApp_Web',
+                    BuildStatus: 'SUCCESS', 
+                    Server: 'SDGRAMHQCCASW3',
+                    Commit: '232ga43',
+                    ArtifactoryPath: '/dir/dummy/path'
+                },
+
+                {
+                    Components: 'LoanApp_Api',
+                    BuildStatus: 'SUCCESS', 
+                    Server: 'SDGRAMHQCCASW3', 
+                    Commit: '232ga43', 
+                    ArtifactoryPath: '/dir/dummy/path'
+                },
+                {
+                    Components: 'BFNA', 
+                    BuildStatus: 'SUCCESS', 
+                    Server: 'SDGRAMHQCCASW3', 
+                    Commit: '232ga43', 
+                    ArtifactoryPath: '/dir/dummy/path',
+                    JobLog: ''
+                }
+            ];
+        
+        $('#thetable tr').not(':first').not(':last').remove();
+        var html = '';
+        for(var i = 0; i < data.d.length; i++)
+        html += '<tr><td>' + data.d[i].Components + '</td><td>' + data.d[i].BuildStatus + '</td><td>' + data.d[i].Server + '  ' + data.d[i].Commit + '</td><td>' + data.d[i].ArtifactoryPath + '</td></tr>' + data.d[i].JobLog + '</td></tr>';
+        $('#thetable tr').first().last().after(html);
+    var x = document.getElementById("myDIV");
+        x.style.display = "block"
+}
+
+function authFunction() {
+    var data = {};
+    data.d = 
+            [
+                {
+                    Components: 'AuthorizationService',
+                    BuildStatus: 'SUCCESS', 
+                    Server: 'SDGRAMHQCCASW3',
+                    Commit: '43fe53d',
+                    ArtifactoryPath: '/dir/dummy/path',
+                    JobLog: ''
+                },
+            ];
+        
+        $('#thetable tr').not(':first').not(':last').remove();
+        var html = '';
+        for(var i = 0; i < data.d.length; i++)
+                    html += '<tr><td>' + data.d[i].Components + '</td><td>' + data.d[i].BuildStatus + '</td><td>' + data.d[i].Server + '  ' + data.d[i].Commit + '</td><td>' + data.d[i].ArtifactoryPath + '</td></tr>' + data.d[i].JobLog + '</td></tr>';
+            $('#thetable tr').first().after(html);
+    var x = document.getElementById("myDIV");
+        x.style.display = "block"
+}
+</script>
+</body> 
+</html>
